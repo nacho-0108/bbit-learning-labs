@@ -17,7 +17,6 @@ class mqConsumer(mqConsumerInterface):
         # Establish Channel
         self.channel = self.connection.channel()
 
-        print("hi")
         # Create Queue if not already present
         self.channel.queue_declare(queue=self.queue_name)
 
@@ -40,7 +39,7 @@ class mqConsumer(mqConsumerInterface):
         # Acknowledge message
         channel.basic_ack(method_frame.delivery_tag, False)
         #Print message
-        print(body.message)
+        print(body)
 
     def startConsuming(self):
         # Print " [*] Waiting for messages. To exit press CTRL+C"
